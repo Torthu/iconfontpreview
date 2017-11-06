@@ -32,19 +32,20 @@ font = opentype.loadSync(inFile)
 inFileName = inFile.split('/')
 inFileName = inFileName[inFileName.length - 1]
 
-fs.createReadStream(inFile).pipe(fs.createWriteStream(outFolder += inFileName))
+fs.createReadStream(inFile).pipe(fs.createWriteStream(outFolder + inFileName))
 
 # Node 8.5.0
-# fs.copyFileSync(inFile, outFolder += '/fonts' + inFileName)
+# fs.copyFileSync(inFile, outFolder + inFileName)
 
 unicodeToChar = (unicode) -> String.fromCharCode(unicode)
 
 fontName = font.names.preferredFamily.en
 
 outputTable = ""
+specialChars = [0, 1, 32]
 
 for index, glyph of font.glyphs.glyphs
-	if glyph.unicode is undefined
+	if glyph.unicode is undefined or glyph.unicode in specialChars
 		continue
 
 	outputTable += """
@@ -54,6 +55,7 @@ for index, glyph of font.glyphs.glyphs
 			<p>Name: #{glyph.name}</p>
 			<p>Character: #{unicodeToChar(glyph.unicode)}</p>
 		</div>
+
 	"""
 
 html = """
@@ -67,7 +69,7 @@ html = """
 				}
 
 				body {
-					font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+					font-family: sans-serif;
 					margin: 1em;
 					background: #f9f9f9;
 					color: #222;
