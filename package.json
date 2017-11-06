@@ -1,0 +1,19 @@
+{
+  "name": "iconfontpreview",
+  "version": "1.0.0",
+  "description": "Create a HTML page previewing the glyphs of an icon font.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "coffee --compile lib/iconpreview.coffee"
+  },
+  "author": "Torstein Thune <torstein@thune.io>",
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "opentype.js": "^0.7.3"
+  },
+  "main": "./lib/iconpreview.js",
+  "bin": {
+    "iconfontpreview": "./bin/iconpreview"
+  }
+}
