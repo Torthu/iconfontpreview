@@ -1,6 +1,6 @@
 {
   "name": "iconfontpreview",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Create a HTML page previewing the glyphs of an icon font.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
