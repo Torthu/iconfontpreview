@@ -51,7 +51,8 @@ for index, glyph of font.glyphs.glyphs
 	outputTable += """
 		<div>
 			<h1>#{unicodeToChar(glyph.unicode)}</h1>
-			<p>Unicode: #{glyph.unicode}</p>
+			<p>Unicode (dec): #{glyph.unicode}</p>
+			<p>Unicode (hex): #{glyph.unicode.toString(16)}</p>
 			<p>Name: #{glyph.name}</p>
 			<p>Character: #{unicodeToChar(glyph.unicode)}</p>
 		</div>
